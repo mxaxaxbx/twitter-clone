@@ -7,9 +7,11 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
 /* objeto de conexion a la base de datos */
 var MongoCN = ConectarBD()
-var clientOptions = options.Client().ApplyURI("mongodb+srv://user:BQSLTpaF0p9oGc1c@cluster0.gdt1r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://user:DnC1H0dors5U8R5N@cluster0.gdt1r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+
 /* conexion a la base de datos */
 func ConectarBD() *mongo.Client {
 	client, err := mongo.Connect(context.TODO(), clientOptions)
@@ -29,8 +31,9 @@ func ConectarBD() *mongo.Client {
 	log.Println("Conexion exitosa a la BD")
 
 	return client
-	
+
 }
+
 /* ping a la base de datos */
 func ChequeoConection() int {
 	err := MongoCN.Ping(context.TODO(), nil)
