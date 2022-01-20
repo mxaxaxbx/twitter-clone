@@ -8,11 +8,11 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func ChequeoExisteUsuario(email string) (models.Usuario, bool, string) {
+func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	db := MongoCN.Database("twitter-clone")
+	db := MongoCN.Database("twitter")
 	col := db.Collection("usuarios")
 
 	condicion := bson.M{"email": email}

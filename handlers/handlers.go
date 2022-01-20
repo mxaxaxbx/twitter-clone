@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/mxaxaxbx/twitter-clone/middlewares"
+	"github.com/mxaxaxbx/twitter-clone/routes"
 	"github.com/rs/cors"
 )
 
@@ -14,7 +15,7 @@ import (
 func Manejadores() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/registro", middlewares.ChequeoBD(routers.Registro)).Methods("POST")
+	router.HandleFunc("/registro", middlewares.ChequeoBD(routes.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
